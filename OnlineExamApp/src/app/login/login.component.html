@@ -1,0 +1,57 @@
+<form [formGroup]="loginForm" (ngSubmit)="submitData()" class="signup-form" action="/login" method="post">
+
+  <div class="form-header">
+    <h1>Login</h1>
+  </div>
+  <div>
+    <span>Admin:</span>
+    <input type="radio" name="typeId" id="Admin" value="1" formControlName="typeId">&nbsp;&nbsp;
+    <span>User:</span>
+    <input type="radio" name="typeId" id="User" value="2" formControlName="typeId">
+  </div>
+
+  <div class="form-body">
+    <div class="horizontal-group">
+      <label for="Email-id"><b>Email-id</b></label>
+      <input type="text" placeholder="Enter Email-id" name="Email-id" formControlName="emailId">
+    </div>
+
+  </div>
+  <div>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" formControlName="password">
+  </div>
+
+  <div [hidden]="loginForm.controls['password'].valid || loginForm.controls['password'].pristine">
+    <div *ngIf="loginForm.controls['password'].errors?.['required']">
+      password is required
+    </div>
+    <div *ngIf="loginForm.controls['password'].errors?.['lengtherror']">
+      {{loginForm.controls['password'].errors?.['lengtherror'].message}}
+      current length is: &nbsp; {{loginForm.controls['password'].errors?.['lengtherror'].currentlength}}
+    </div>
+    <div *ngIf="loginForm.controls['password'].errors?.['noUpperCase']">
+      {{loginForm.controls['password'].errors?.['noUpperCase'].message}}
+    </div>
+    <div *ngIf="loginForm.controls['password'].errors?.['noLowerCase']">
+      {{loginForm.controls['password'].errors?.['noLowerCase'].message}}
+    </div>
+    <div *ngIf="loginForm.controls['password'].errors?.['spacialCharacterError']">
+      {{loginForm.controls['password'].errors?.['spacialCharacterError']}}
+    </div>
+    <div *ngIf="loginForm.controls['password'].errors?.['digitError']">
+      {{loginForm.controls['password'].errors?.['digitError'].message}}
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <button type="submit">Login</button>
+    </div>
+  </div>
+  <div>
+    <span class="Register here.">Don't have an account<a routerLink="../registration"> Register here.</a>
+      Forgot <a routerLink="../reset-password">password</a>
+    </span>
+  </div>
+</form>

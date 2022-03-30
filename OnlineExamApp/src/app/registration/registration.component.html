@@ -1,0 +1,63 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submitUser()" class="signup-form" action="/register" method="post">
+    <div class="form-header">
+        <h1>Register</h1>
+    </div>
+
+    <div class="form-body">
+        <div class="horizontal-group">
+            <div class="form-group left">
+                <label for="Full name"><b>Full name</b></label>
+                <input type="text" placeholder="Enter your Full Name" name="name" id="name" required
+                    formControlName="userName">
+            </div>
+            <div class="form-group right">
+                <label for="Email"><b>Email</b></label>
+                <input type="text" placeholder="Enter your Email id" name="name" id="name" required
+                    formControlName="emailId">
+            </div>
+        </div>
+
+        <div class="horizontal-group">
+            <div class="form-group left">
+                <label for="Mobile"><b>Mobile</b></label>
+                <input type="number" placeholder="Enter your mobile number" name="name" id="name" required
+                    formControlName="mobileNo">
+            </div>
+            <br>
+            <div class="form-group right">
+                <label for="City"><b>City</b></label>
+                <input type="text" placeholder="Enter your city name" name="name" id="name" required
+                    formControlName="city">
+            </div>
+        </div>
+        <label for="DOB"><b>Date Of Birth</b></label>
+        <input type="date" placeholder="Enter your date of birth" name="name" id="name" required formControlName="dob">
+        <br>
+        <label for="State"><b>State</b></label>
+        <input type="text" placeholder="Enter your State" name="name" id="name" required formControlName="state">
+        <br>
+
+        <label for="Qulification"><b>Qulification</b></label>
+        <input type="text" placeholder="Enter your qulification" name="name" id="name" required
+            formControlName="qualification">
+
+        <label for="Year of completion"><b>Year of Completion</b></label>
+        <input type="date" placeholder="year of completion" name="name" id="name" required formControlName="completionYr">
+<br><br>
+        <label for="Password"><b>Password</b></label>
+        <input type="text" placeholder="Enter Password" name="name" id="name" required formControlName="pwd">
+
+        <label for="Password"><b>Confirm Password</b></label>
+        <input type="text" placeholder="Re-Enter Password" name="name" id="name" required formControlName="cnfPwd">
+
+    </div>
+
+    <div class="form-footer">
+        <span>* required</span>
+        <button type="submit" class="btn">Register</button>
+    </div>
+
+    <div class="container signin">
+        <small> Already have an account? <a routerLink="../login">Sign in</a></small>
+    </div>
+</form>
